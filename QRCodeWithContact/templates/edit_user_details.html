@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <style>
+        body {
+          font-family: Arial, Helvetica, sans-serif;
+        }
+
+        * {
+          box-sizing: border-box;
+        }
+
+        input[type=submit]:hover {
+          background-color: #45a049;
+        }
+
+        .input-container {
+          display: -ms-flexbox; /* IE10 */
+          display: flex;
+          width: 100%;
+          margin-bottom: 15px;
+        }
+
+        .icon {
+          padding: 10px;
+          background: dodgerblue;
+          color: white;
+          min-width: 50px;
+          text-align: center;
+        }
+
+        .input-field {
+          width: 100%;
+          padding: 10px;
+          outline: none;
+        }
+
+        .input-field:focus {
+          border: 2px solid dodgerblue;
+        }
+
+        /* Set a style for the submit button */
+        .btn {
+          background-color: dodgerblue;
+          color: white;
+          padding: 15px 20px;
+          border: none;
+          cursor: pointer;
+          width: 100%;
+          opacity: 0.9;
+        }
+
+        .btn:hover {
+          opacity: 1;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Title</title>
+
+</head>
+
+<body>
+    <div class="container">
+        <div style="text-align:center">
+            <h1>Enter your details</h1>
+        </div>
+        <div class="row">
+
+            <div class="column">
+                <form action={% url 'save_user_details' id=user_info.id %} method="POST" enctype="multipart/form-data" style="max-width:500px;margin:auto">
+                    {% csrf_token %}
+                    <div class="input-container">
+                        <i class="fa fa-user icon"></i>
+                        <input class="input-field" type="text" name="full_name" value="{{user_info.full_name}}" placeholder="Full Name" required>
+
+                    </div>
+                    <div class="input-container">
+                        <i class="fa fa-phone icon"></i>
+
+                        <input class="input-field" type="text" name="contact_number" value="{{user_info.contact_number}}" placeholder="Contact number" required>
+
+                    </div>
+                    <div class="input-container">
+                        <i class="fa fa-home icon"></i>
+                        <input class="input-field" type="text" name="address" value="{{user_info.address}}" placeholder="Address" required>
+
+                    </div>
+                    <div class="input-container">
+                        <i class="fa fa-envelope icon"></i>
+                        <input class="input-field" type="text" name="email" value="{{user_info.email}}" placeholder="Email" required>
+
+                    </div>
+                    <div class="input-container">
+                        <i class="fa fa-key icon"></i>
+                        <input class="input-field" type="password" name="password" value="{{user_info.password}}" placeholder="Password" required>
+
+                    </div>
+
+                    <div class="input-container">
+                        <i class="fa fa-user icon"></i>
+                        <input class="input-field" type="text" name="mother_name" value="{{user_info.mother_name}}" placeholder="Mother Name">
+
+                    </div>
+                    <div class="input-container">
+                        <i class="fa fa-phone icon"></i>
+                        <input class="input-field" type="text" name="mother_contact_number" value="{{user_info.mother_contact_number}}" placeholder="Mother Contact number">
+
+                    </div>
+                    <div class="input-container">
+                        <i class="fa fa-user icon"></i>
+                        <input class="input-field" type="text" name="father_name" value="{{user_info.father_name}}" placeholder="Father Name">
+
+                    </div>
+
+                    <div class="input-container">
+                        <i class="fa fa-phone icon"></i>
+                        <input class="input-field" type="text" name="father_contact_number" value="{{user_info.father_contact_number}}" placeholder="Father Contact number">
+
+                    </div>
+                    <div class="input-container">
+                        <i class="fa fa-user icon"></i>
+                        <input class="input-field" type="text" name="wife_name" value="{{user_info.wife_name}}" placeholder="Wife Name">
+
+                    </div>
+                    <div class="input-container">
+                        <i class="fa fa-phone icon"></i>
+                        <input class="input-field" type="text" name="wife_contact_number" value="{{user_info.wife_contact_number}}" placeholder="Wife number">
+
+                    </div>
+                    <div class="input-container">
+                        <i class="fa fa-user icon"></i>
+                        <input class="input-field" type="text" name="husband_name" value="{{user_info.husband_name}}" placeholder="Husband Name">
+
+                    </div>
+                    <div class="input-container">
+                        <i class="fa fa-phone icon"></i>
+                        <input class="input-field" type="text" name="husband_contact_number" value="{{user_info.husband_contact_number}}" placeholder="Husband Contact">
+
+                    </div>
+                    <div class="input-container">
+                        <i class="fa fa-building icon"></i>
+                        <input class="input-field" type="text" name="education_institute" value="{{user_info.education_institute}}" placeholder="Education institute">
+
+                    </div>
+                    <div class="input-container">
+                        <i class="fa fa-phone icon"></i>
+                        <input class="input-field" type="text" name="education_institute_contact" value="{{user_info.education_institute_contact}}" placeholder="Education institute Contact number">
+
+                    </div>
+                    <div class="input-container">
+                        <i class="fa fa-building icon"></i>
+
+                        <input class="input-field" type="text" name="work_place_name" value="{{user_info.work_place_name}}" placeholder="workplace Name">
+
+                    </div>
+                    <div class="input-container">
+                        <i class="fa fa-home icon"></i>
+                        <input class="input-field" type="text" name="work_place_address" value="{{user_info.work_place_address}}" placeholder="Workplace Address">
+
+                    </div>
+                    <div class="input-container">
+                        <i class="fa fa-phone icon"></i>
+                        <input class="input-field" type="text" name="work_place_contact_number" value="{{user_info.work_place_contact_number}}" placeholder="Workplace Contact number">
+
+                    </div>
+                    <div class="input-container">
+                        <i class="fa fa-user icon"></i>
+                        <input class="input-field" type="text" name="best_friend_name" value="{{user_info.best_friend_name}}" placeholder="Best Friend Name">
+
+                    </div>
+
+                    <div class="input-container">
+                        <i class="fa fa-phone icon"></i>
+
+                        <input class="input-field" type="text" name="best_friend_contact_number" value="{{user_info.best_friend_contact_number}}" placeholder="Best Friend Contact number">
+
+                    </div>
+                    <input class="btn" type="submit" value="Submit details">
+                </form>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
