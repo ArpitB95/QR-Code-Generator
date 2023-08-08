@@ -42,8 +42,17 @@ class UserInfo(models.Model):
         if kwargs.get("name"):
             id = kwargs.get("id")
             name = str(kwargs["name"])
-            qr_code_image = qrcode.make(name)
-            canvas = Image.new("RGB", (1000, 1000), "white")
+            qr = qrcode.QRCode(
+                version=1,  # Automatically determine the version based on data
+                error_correction=qrcode.constants.ERROR_CORRECT_L,
+                box_size=10,  # Adjust box size to control the overall size of the QR code
+                border=4,  # Add a border around the QR code
+            )
+            qr.add_data(name)
+            qr.make(fit=True)
+            qr_code_image =  qr.make_image(fill_color="black", back_color="white")
+            qr_code_image = qr_code_image.resize((180, 180))
+            canvas = Image.new("RGB", (200, 200), "white")
             draw = ImageDraw.Draw(canvas)
             canvas.paste(qr_code_image)
             fname = f"qr_code_for_{id}.png"
