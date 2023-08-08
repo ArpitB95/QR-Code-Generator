@@ -22,12 +22,12 @@ def get_qr_code_details(request, qr_code_number):
         return render(request, "enter_user_details.html", {"user_info": user_info})
 
 
-def save_user_details(request, qr_code_number):
+def save_user_details(request, id):
     try:
         email = request.POST.get("email", "")
         user_info = UserInfo.objects.filter(email=email).first()
         if user_info:
-            user_info = UserInfo.objects.filter(qr_code_number=qr_code_number).first()
+            user_info = UserInfo.objects.get(id=id)
             return render(
                 request,
                 "enter_user_details.html",
@@ -136,3 +136,6 @@ def forgot_password(request):
         )
     except:
         return render(request, "login.html", {"error": "Please enter valid email"})
+
+def agrrement(request):
+    return render(request,"agrrement.html")

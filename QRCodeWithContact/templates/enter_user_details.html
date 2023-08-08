@@ -12,11 +12,14 @@
         * {
           box-sizing: border-box;
         }
-
-
-
-        input[type=submit]:hover {
-          background-color: #45a049;
+        .btn{
+        background: dodgerblue;
+         color: white;
+         width: 100%;
+         display: flex;
+          display: -ms-flexbox; /* IE10 */
+           padding: 10px;
+           margin-bottom: 15px;
         }
 
         .input-container {
@@ -50,19 +53,7 @@
         }
 
         /* Set a style for the submit button */
-        .btn {
-          background-color: dodgerblue;
-          color: white;
-          padding: 15px 20px;
-          border: none;
-          cursor: pointer;
-          width: 100%;
-          opacity: 0.9;
-        }
 
-        .btn:hover {
-          opacity: 1;
-        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Title</title>
@@ -70,17 +61,28 @@
 </head>
 
 <body>
- <script>
+ <script type="text/javascript">
         var check = function() {
   if (document.getElementById('password').value ==
     document.getElementById('confirm_password').value) {
     document.getElementById('message').style.color = 'green';
     document.getElementById('message').innerHTML = 'matching';
+     document.getElementById('submit').disabled = false;
   } else {
-
+     document.getElementById('submit').disabled = true;
     document.getElementById('message').style.color = 'red';
     document.getElementById('message').innerHTML = 'not matching';
   }
+}
+
+var enableButton = function(){
+if(document.getElementById('check_box').checked && document.getElementById('password').value ==
+    document.getElementById('confirm_password').value) {
+  document.getElementById('submit').disabled = false;
+}else{
+document.getElementById('submit').disabled = true;
+}
+
 }
     </script>
  {% if error %}
@@ -97,7 +99,7 @@
         <div class="row">
 
             <div class="column">
-                <form action={% url 'save_user_details' id=user_info.qr_code_number %} method="POST" enctype="multipart/form-data" style="max-width:500px;margin:auto">
+                <form action={% url 'save_user_details' id=user_info.id %} method="POST" enctype="multipart/form-data" style="max-width:500px;margin:auto">
                     {% csrf_token %}
                     <div class="input-container">
                         <i class="fa fa-user icon"></i>
@@ -192,7 +194,11 @@
                         <input class="input-field" type="number" max="99999999999" name="best_friend_contact_number" placeholder="Best Friend Contact number">
                     </div>
 
-                    <input class="btn" type="submit" value="Submit details">
+                    <input type="checkbox" id="check_box" name="check_box" onchange="enableButton();" >
+                  <label>Please check to countinue</label>
+                </br>
+                <a href="/agrrement">Read descalimer </a>
+                    <input class="btn" type="submit" value="Submit details" id="submit" disabled>
 
                 </form>
 
