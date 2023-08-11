@@ -1,0 +1,10 @@
+SALT = b"PZgBl75C9eKgFD-ABD4Ke_kuxci8bqTv1-cYrtKCj5E="
+URL_PATH = "http://127.0.0.1:8000/get_qr_code_details/"
+SENDER_MAIL_ID = "shahmeet21.ms@gmail.com"
+SUBJECT_FOR_FORGOT_PASSWORD = "YOUR NEW PASSWORD"
+EMAIL_PASSWORD = "tbnlgpbfufnzhaiw"
+SMTP_URL = "smtp.gmail.com"
+SMTP_PORT = 465
+SUBJECT_ALERT_EMAIL = "Someone scan your QR code"
+EMAIL_TYPE_FORGOT_PW = "forgot_password"
+EMAIL_TYPE_INFO = "alert"

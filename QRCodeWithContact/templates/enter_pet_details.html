@@ -115,7 +115,13 @@ function togglePasswordVisibility() {
                     <div class="input-container">
                         <i class="fa fa-user icon"></i>
 
-                        <input class="input-field" type="text" name="full_name" placeholder="Full Name" required>
+                        <input class="input-field" type="text" name="pet_name" placeholder="Full Name" required>
+
+                    </div>
+                <div class="input-container">
+                        <i class="fa fa-user icon"></i>
+
+                        <input class="input-field" type="text" name="owner_full_name" placeholder="Full Name" required>
 
                     </div>
                     <div class="input-container">
@@ -126,9 +132,17 @@ function togglePasswordVisibility() {
                     </div>
                     <div class="input-container">
                         <i class="fa fa-home icon"></i>
-                        <input class="input-field" type="text" name="address" placeholder="Address" required maxlength="60">
+                        <input class="input-field" type="text" name="current_country" placeholder="Current Address" required maxlength="20">
+                    </div>
+                    <div class="input-container">
+                        <i class="fa fa-home icon"></i>
+                        <input class="input-field" type="text" name="current_location_link" placeholder="Current Location Link" required maxlength="60">
 
                     </div>
+                    <div class="input-container">
+                        <i class="fa fa-home icon"></i>
+                        <input class="input-field" type="text" name="zip_code" placeholder="Zip code" required >
+
                     <div class="input-container">
                         <i class="fa fa-envelope icon"></i>
                         <input class="input-field" type="text" name="email" placeholder="Email" required>
@@ -144,67 +158,6 @@ function togglePasswordVisibility() {
                         <input class="input-field" type="password" name="confirm_password" id="confirm_password" placeholder="Confirm Password"  maxlength="16" onkeyup='check();'>
                         <button type="button" onclick="togglePasswordVisibility()"><i class="fa fa-eye" aria-hidden="true"></i></button>
                      <span id='message'></span>
-                    </div>
-                    <div class="input-container">
-                        <i class="fa fa-user icon"></i>
-                        <input class="input-field" type="text" name="mother_name" placeholder="Mother Name" maxlength="20">
-                    </div>
-                    <div class="input-container">
-                        <i class="fa fa-phone icon"></i>
-                        <input class="input-field" type="number" max="99999999999" name="mother_contact_number" placeholder="Mother Contact number" maxlength="12">
-                    </div>
-                    <div class="input-container">
-                        <i class="fa fa-user icon"></i>
-                        <input class="input-field" type="text" name="father_name" placeholder="Father Name" maxlength="20">
-                    </div>
-
-                    <div class="input-container">
-                        <i class="fa fa-phone icon"></i>
-                        <input class="input-field" type="number" max="99999999999" name="father_contact_number" placeholder="Father Contact number" maxlength="12">
-                    </div>
-                    <div class="input-container">
-                        <i class="fa fa-user icon"></i>
-                        <input class="input-field" type="text" name="wife_name" placeholder="Wife Name" maxlength="20">
-                    </div>
-                    <div class="input-container">
-                        <i class="fa fa-phone icon"></i>
-                        <input class="input-field" type="number" max="99999999999" name="wife_contact_number" placeholder="Wife number" maxlength="12">
-                    </div>
-                    <div class="input-container">
-                        <i class="fa fa-user icon"></i>
-                        <input class="input-field" type="text" name="husband_name" placeholder="Husband Name" maxlength="20">
-                    </div>
-                    <div class="input-container">
-                        <i class="fa fa-phone icon"></i>
-                        <input class="input-field" type="number" max="99999999999" name="husband_contact_number" placeholder="Husband Contact" maxlength="12">
-                    </div>
-                    <div class="input-container">
-                        <i class="fa fa-building icon"></i>
-                        <input class="input-field" type="text" name="education_institute" placeholder="Education institute" maxlength="20">
-                    </div>
-                    <div class="input-container">
-                        <i class="fa fa-phone icon"></i>
-                        <input class="input-field" type="number" max="99999999999" name="education_institute_contact" placeholder="Education institute Contact number" maxlength="12">
-                    </div>
-                    <div class="input-container">
-                        <i class="fa fa-building icon"></i>
-                        <input class="input-field" type="text" name="work_place_name" placeholder="workplace Name" maxlength="20">
-                    </div>
-                    <div class="input-container">
-                        <i class="fa fa-home icon"></i>
-                        <input class="input-field" type="text" name="work_place_address" placeholder="Workplace Address" maxlength="50">
-                    </div>
-                    <div class="input-container">
-                        <i class="fa fa-phone icon"></i>
-                        <input class="input-field" type="number" max="99999999999" name="work_place_contact_number" placeholder="Workplace Contact number" maxlength="12">
-                    </div>
-                    <div class="input-container">
-                        <i class="fa fa-user icon"></i>
-                        <input class="input-field" type="text" name="best_friend_name" placeholder="Best Friend Name" maxlength="20">
-                    </div>
-                    <div class="input-container">
-                        <i class="fa fa-phone icon"></i>
-                        <input class="input-field" type="number" max="99999999999" name="best_friend_contact_number" placeholder="Best Friend Contact number">
                     </div>
 
                     <input type="checkbox" id="check_box" name="check_box" onchange="enableButton();" >

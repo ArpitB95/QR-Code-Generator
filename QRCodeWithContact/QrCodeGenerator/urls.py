@@ -1,15 +1,16 @@
 from django.urls import path
 
 from .views import (
-    view_all_details,
-    get_qr_code_details,
-    generate_qr_code,
-    save_user_details,
-    get_login_page,
-    post_login_page,
+    agrrement,
+    edit_save_user_details,
     forgot_password,
+    generate_qr_code,
     get_forgot_email,
-agrrement
+    get_login_page,
+    get_qr_code_details,
+    post_login_page,
+    save_user_details,
+    view_all_details,
 )
 
 urlpatterns = [
@@ -25,9 +26,14 @@ urlpatterns = [
         save_user_details,
         name="save_user_details",
     ),
+    path(
+        "edit_save_user_details/<int:id>",
+        edit_save_user_details,
+        name="edit_save_user_details",
+    ),
     path("login/", get_login_page, name="login"),
     path("post_login_page", post_login_page, name="post_login_page"),
     path("forgot_password", forgot_password, name="forgot_password"),
     path("get_forgot_email/", get_forgot_email, name="get_forgot_email"),
-path("agrrement/", agrrement, name="get_forgot_email"),
+    path("agrrement/", agrrement, name="get_forgot_email"),
 ]

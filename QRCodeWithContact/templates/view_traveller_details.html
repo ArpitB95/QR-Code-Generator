@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+          font-family: Arial, Helvetica, sans-serif;
+        }
+
+        * {
+          box-sizing: border-box;
+        }
+
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+        }
+
+        tr:nth-child(even) {
+          background-color: #dddddd;
+        }
+
+
+        input[type=submit]:hover {
+          background-color: #45a049;
+        }
+
+
+        /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 600px) {
+          .column, input[type=submit] {
+            width: 100%;
+            margin-top: 0;
+          }
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <div style="text-align:center">
+            <h2>Contact Details Of Bag Owner </h2>
+
+        </div>
+        <div class="row">
+
+            <div class="column">
+                <table>
+
+                    <tr>
+                        <td>Full Name</td>
+                        <td>{{traveller_info.full_name}}</td>
+                    </tr>
+
+                     <tr>
+                         <td>Owner contact number</td>
+                        <td><a href="tel:{{traveller_info.contact_number}}">{{traveller_info.contact_number}}</a></td>
+                    </tr>
+                      <tr>
+                         <td>Owner Current Country</td>
+                        <td>{{traveller_info.current_country}}</td>
+                    </tr>
+                     <tr>
+                         <td>Owner Current Address</td>
+                        <td>{{traveller_info.current_address}}</td>
+                    </tr>
+                     <tr>
+                         <td>Current Location Link</td>
+                        <td><a href="{{traveller_info.current_location_link}}">{{traveller_info.current_location_link}}</a></td>
+                    </tr>
+                        <tr>
+                         <td>Owner Destination Country</td>
+                        <td>{{traveller_info.destination_country}}</td>
+                    </tr>
+                     <tr>
+                         <td>Owner Destination Address</td>
+                        <td>{{traveller_info.destination_address}}</td>
+                    </tr>
+                     <tr>
+                         <td>Destination Location Link</td>
+                        <td><a href="{{traveller_info.destination_location_link}}">{{traveller_info.destination_location_link}}</a></td>
+                    </tr>
+                     <tr>
+                         <td>Email</td>
+                        <td>{{traveller_info.email}}</td>
+                    </tr>
+
+                </table>
+
+
+                <a href="/login/"><h1>Edit</h1></span></a>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
