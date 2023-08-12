@@ -6,7 +6,6 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.views.decorators.cache import never_cache
 
-# Create your views here.
 from .constants import (CONGRATULATION_MESSAGE, EMAIL_TYPE_FORGOT_PW, SALT,
                         SUBJECT_FOR_FORGOT_PASSWORD)
 from .models import TravellerInfo

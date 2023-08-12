@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from django.views.decorators.cache import never_cache
 
-# Create your views here.
 from .constants import EMAIL_TYPE_INFO, SUBJECT_ALERT_EMAIL
 from .models import PetOwnerInfo, TravellerInfo, UserInfo
 from .utils import get_ip_address, send_mail

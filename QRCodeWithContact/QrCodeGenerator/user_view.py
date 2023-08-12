@@ -24,8 +24,8 @@ def save_user_details(request, qr_code_number):
         user_info = UserInfo.objects.filter(email=email).first()
         if user_info:
             context = {
-                "error_message": email  + " is already present please use different Email ID",
-
+                "error_message": email
+                + " is already present please use different Email ID",
                 "user_info": user_info,
             }
             return render(

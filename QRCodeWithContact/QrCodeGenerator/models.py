@@ -6,7 +6,6 @@ from django.db import models
 from PIL import Image, ImageDraw
 
 
-# Create your models here.
 class UserInfo(models.Model):
     id = models.AutoField(primary_key=True)
     qr_code_number = models.TextField(unique=True, blank=False)

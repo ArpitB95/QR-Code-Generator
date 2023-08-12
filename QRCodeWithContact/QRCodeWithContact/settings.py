@@ -129,7 +129,8 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
-LOGIN_URL = '/accounts/login/'  # URL to redirect users to the login page
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'view_all_details'
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',  # Use the default ModelBackend
 ]

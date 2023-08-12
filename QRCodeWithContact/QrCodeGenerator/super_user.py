@@ -2,16 +2,19 @@ import os
 import uuid
 from io import BytesIO
 
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import UserCreationForm
 from django.core.files import File
 from django.shortcuts import redirect, render
 from django.views.decorators.cache import never_cache
 from PIL import Image
 
-# Create your views here.
 from .constants import URL_PATH
 from .models import FinalPic, PetOwnerInfo, TravellerInfo, UserInfo
 
 
+@login_required
 def view_all_details(request):
     final_pic = FinalPic.objects.order_by("-date_time").all()
     return render(request, "view_all_details.html", {"final_pic": final_pic})
@@ -92,3 +95,25 @@ def generate_a4(type):
             print(f"{image} has been deleted.")
         except OSError as e:
             print(f"Error: {e} - {image} was not deleted.")
+
+
+def signup_view(request):
+    if request.method == "POST":
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("login")  # Redirect to login page
+    else:
+        form = UserCreationForm()
+    return render(request, "signup.html", {"form": form})
+
+
+def custom_login(request):
+    if request.method == "POST":
+        username = request.POST.get("username")
+        password = request.POST.get("password")
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect("view_all_details")
+    return render(request, "login.html")

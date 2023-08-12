@@ -4,7 +4,6 @@ from email.mime.text import MIMEText
 
 import requests
 
-# Create your views here.
 from .constants import (EMAIL_PASSWORD, EMAIL_TYPE_FORGOT_PW, EMAIL_TYPE_INFO,
                         SENDER_MAIL_ID, SMTP_PORT, SMTP_URL)
 

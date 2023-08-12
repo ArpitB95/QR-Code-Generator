@@ -24,11 +24,10 @@ def save_pet_details(request, qr_code_number):
         pet_owner_info = PetOwnerInfo.objects.filter(email=email).first()
         if pet_owner_info:
             context = {
-                    "error ": email
-                    + " is already present please use different Email ID",
-                    "pet_owner_info": pet_owner_info,
-                }
-
+                "error_message": email
+                + " is already present please use different Email ID",
+                "pet_owner_info": pet_owner_info,
+            }
             return render(
                 request,
                 "enter_pet_details.html",

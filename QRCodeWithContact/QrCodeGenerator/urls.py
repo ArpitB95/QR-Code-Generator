@@ -4,7 +4,8 @@ from .common import agrrement, get_qr_code_details
 from .pet_view import (forgot_pet_password, get_forgot_pet_email,
                        get_pet_login_page, post_login_pet_page,
                        save_edited_pet_details, save_pet_details)
-from .super_user import generate_qr_code, view_all_details
+from .super_user import (custom_login, generate_qr_code, signup_view,
+                         view_all_details)
 from .traveller_view import (forgot_traveller_password,
                              get_forgot_traveller_email,
                              get_traveller_login_page,
@@ -16,6 +17,8 @@ from .user_view import (forgot_user_password, get_forgot_user_email,
                         save_edited_user_details, save_user_details)
 
 urlpatterns = [
+    path('signup/', signup_view, name='signup'),
+    path('login/', custom_login, name='login'),
     path("forgot_user_password", forgot_user_password, name="forgot_user_password"),
     path("forgot_pet_password", forgot_pet_password, name="forgot_pet_password"),
     path(

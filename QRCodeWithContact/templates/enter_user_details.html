@@ -99,6 +99,10 @@
             <div class="column">
                <form action={% url 'save_user_details' qr_code_number=user_info.qr_code_number %} method="POST" enctype="multipart/form-data" style="max-width:500px;margin:auto">
                {% csrf_token %}
+               {% csrf_token %}
+               {% if error_message %}
+               <p style="color: red;">{{ error_message }}</p>
+               {% endif %}
                <div class="input-container">
                   <i class="fa fa-user icon"></i>
                   <input class="input-field" type="text" name="full_name" placeholder="Full Name" required>
