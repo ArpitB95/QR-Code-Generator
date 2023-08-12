@@ -8,3 +8,4 @@ SMTP_PORT = 465
 SUBJECT_ALERT_EMAIL = "Someone scan your QR code"
 EMAIL_TYPE_FORGOT_PW = "forgot_password"
 EMAIL_TYPE_INFO = "alert"
+CONGRATULATION_MESSAGE = """<h1>Congratulations: <strong> {} </strong> your data have been saved successfully </h1>"""

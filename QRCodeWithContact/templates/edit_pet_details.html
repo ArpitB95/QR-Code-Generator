@@ -1,177 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
-    <style>
-        body {
-          font-family: Arial, Helvetica, sans-serif;
-        }
-
-        * {
-          box-sizing: border-box;
-        }
-        .btn{
-        background: dodgerblue;
+   <head>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+      <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+      <style>
+         body {
+         font-family: Arial, Helvetica, sans-serif;
+         }
+         * {
+         box-sizing: border-box;
+         }
+         .btn{
+         background: dodgerblue;
          color: white;
          width: 100%;
          display: flex;
-          display: -ms-flexbox; /* IE10 */
-           padding: 10px;
-           margin-bottom: 15px;
-        }
+         display: -ms-flexbox; /* IE10 */
+         padding: 10px;
+         margin-bottom: 15px;
+         }
+         .input-container {
+         display: -ms-flexbox; /* IE10 */
+         display: flex;
+         width: 100%;
+         margin-bottom: 15px;
+         }
+         .icon {
+         padding: 10px;
+         background: dodgerblue;
+         color: white;
+         min-width: 50px;
+         text-align: center;
+         }
+         .input-field {
+         width: 100%;
+         padding: 10px;
+         outline: none;
+         }
+         .input-field:focus {
+         border: 2px solid dodgerblue;
+         }
+         .alert {
+         padding: 20px;
+         background-color: #f44336;
+         color: white;
+         }
+         /* Set a style for the submit button */
+      </style>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <title>Title</title>
+   </head>
+   <body>
+      <script type="text/javascript">
+         var check = function() {
+         if (document.getElementById('password').value ==
+         document.getElementById('confirm_password').value) {
+         document.getElementById('message').style.color = 'green';
+         document.getElementById('message').innerHTML = 'matching';
+         document.getElementById('submit').disabled = false;
+         } else {
+         document.getElementById('submit').disabled = true;
+         document.getElementById('message').style.color = 'red';
+         document.getElementById('message').innerHTML = 'not matching';
+         }
+         }
 
-        .input-container {
-          display: -ms-flexbox; /* IE10 */
-          display: flex;
-          width: 100%;
-          margin-bottom: 15px;
-        }
+         var enableButton = function(){
+         if(document.getElementById('check_box').checked && document.getElementById('password').value ==
+         document.getElementById('confirm_password').value) {
+         document.getElementById('submit').disabled = false;
+         }else{
+         document.getElementById('submit').disabled = true;
+         }
 
-        .icon {
-          padding: 10px;
-          background: dodgerblue;
-          color: white;
-          min-width: 50px;
-          text-align: center;
-        }
-
-        .input-field {
-          width: 100%;
-          padding: 10px;
-          outline: none;
-        }
-
-        .input-field:focus {
-          border: 2px solid dodgerblue;
-        }
-        .alert {
-          padding: 20px;
-          background-color: #f44336;
-          color: white;
-        }
-
-        /* Set a style for the submit button */
-
-    </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Title</title>
-
-</head>
-
-<body>
- <script type="text/javascript">
-        var check = function() {
-  if (document.getElementById('password').value ==
-    document.getElementById('confirm_password').value) {
-    document.getElementById('message').style.color = 'green';
-    document.getElementById('message').innerHTML = 'matching';
-     document.getElementById('submit').disabled = false;
-  } else {
-     document.getElementById('submit').disabled = true;
-    document.getElementById('message').style.color = 'red';
-    document.getElementById('message').innerHTML = 'not matching';
-  }
-}
-
-var enableButton = function(){
-if(document.getElementById('check_box').checked && document.getElementById('password').value ==
-    document.getElementById('confirm_password').value) {
-  document.getElementById('submit').disabled = false;
-}else{
-document.getElementById('submit').disabled = true;
-}
-
-}
-function togglePasswordVisibility() {
-    var passwordField = document.getElementById("password");
-    var confirmPasswordField = document.getElementById("confirm_password");
-    if (passwordField.type === "password" || confirmPasswordField.type === "password") {
-        passwordField.type = "text"; // Change type to show plain text
-        confirmPasswordField.type = "text"
-    } else {
-        passwordField.type = "password"; // Change type back to password
-        confirmPasswordField.type = "password"
-    }
-}
-    </script>
- {% if error %}
-    <div class="alert">
-        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-        <strong>Danger!</strong> {{eror}}
-    </div>
-    {% endif %}
-
-    <div class="container">
-        <div style="text-align:center">
+         }
+         function togglePasswordVisibility() {
+         var passwordField = document.getElementById("password");
+         var confirmPasswordField = document.getElementById("confirm_password");
+         if (passwordField.type === "password" || confirmPasswordField.type === "password") {
+         passwordField.type = "text"; // Change type to show plain text
+         confirmPasswordField.type = "text"
+         } else {
+         passwordField.type = "password"; // Change type back to password
+         confirmPasswordField.type = "password"
+         }
+         }
+      </script>
+      {% if error %}
+      <div class="alert">
+         <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+         <strong>Danger!</strong> {{eror}}
+      </div>
+      {% endif %}
+      <div class="container">
+         <div style="text-align:center">
             <h1>Enter your details</h1>
-        </div>
-        <div class="row">
-
+         </div>
+         <div class="row">
             <div class="column">
-                <form action={% url 'save_user_details' id=user_info.id %} method="POST" enctype="multipart/form-data" style="max-width:500px;margin:auto">
-                    {% csrf_token %}
-                    <div class="input-container">
-                        <i class="fa fa-user icon"></i>
-
-                        <input class="input-field" type="text" name="pet_name" placeholder="Full Name" required>
-
-                    </div>
-                <div class="input-container">
-                        <i class="fa fa-user icon"></i>
-
-                        <input class="input-field" type="text" name="owner_full_name" placeholder="Full Name" required>
-
-                    </div>
-                    <div class="input-container">
-                        <i class="fa fa-phone icon"></i>
-
-                        <input class="input-field" type="number" max="99999999999" name="contact_number" placeholder="Contact number" required maxlength="20">
-
-                    </div>
-                    <div class="input-container">
-                        <i class="fa fa-home icon"></i>
-                        <input class="input-field" type="text" name="current_country" placeholder="Current Address" required maxlength="20">
-                    </div>
-                    <div class="input-container">
-                        <i class="fa fa-home icon"></i>
-                        <input class="input-field" type="text" name="current_location_link" placeholder="Current Location Link" required maxlength="60">
-
-                    </div>
-                    <div class="input-container">
-                        <i class="fa fa-home icon"></i>
-                        <input class="input-field" type="text" name="zip_code" placeholder="Zip code" required >
-
-                    <div class="input-container">
-                        <i class="fa fa-envelope icon"></i>
-                        <input class="input-field" type="text" name="email" placeholder="Email" required>
-
-                    </div>
-                    <div class="input-container">
-                        <i class="fa fa-key icon"></i>
-                        <input class="input-field" type="password" id="password" name="password" placeholder="Password"  maxlength="16" onkeyup='check();'>
-                        <button type="button" onclick="togglePasswordVisibility()"><i class="fa fa-eye" aria-hidden="true"></i></button>
-                    </div>
-                    <div class="input-container">
-                        <i class="fa fa-key icon"></i>
-                        <input class="input-field" type="password" name="confirm_password" id="confirm_password" placeholder="Confirm Password"  maxlength="16" onkeyup='check();'>
-                        <button type="button" onclick="togglePasswordVisibility()"><i class="fa fa-eye" aria-hidden="true"></i></button>
-                     <span id='message'></span>
-                    </div>
-
-                    <input type="checkbox" id="check_box" name="check_box" onchange="enableButton();" >
-                  <label>Please check to countinue</label>
-                </br>
-                <a href="/agrrement">Read descalimer </a>
-                    <input class="btn" type="submit" value="Submit details" id="submit" disabled>
-
-                </form>
-
-
+               <form action={% url 'save_pet_details' qr_code_number=pet_owner_info.qr_code_number %} method="POST" enctype="multipart/form-data" style="max-width:500px;margin:auto">
+               {% csrf_token %}
+               <div class="input-container">
+                  <i class="fa fa-user icon"></i>
+                  <input class="input-field" type="text" name="pet_name" placeholder="Pet Full Name" value="{{pet_owner_info.pet_name}}" required>
+               </div>
+               <div class="input-container">
+                  <i class="fa fa-user icon"></i>
+                  <input class="input-field" type="text" name="owner_full_name" value="{{pet_owner_info.owner_full_name}}" placeholder="Owner Full Name" required>
+               </div>
+               <div class="input-container">
+                  <i class="fa fa-phone icon"></i>
+                  <input class="input-field" type="number" max="99999999999" name="contact_number" value="{{pet_owner_info.contact_number}}" placeholder="Contact number" required maxlength="20">
+               </div>
+               <div class="input-container">
+                  <i class="fa fa-home icon"></i>
+                  <input class="input-field" type="text" name="current_location_link" value="{{pet_owner_info.current_location_link}}" placeholder="Current Location Link" required maxlength="60">
+               </div>
+               <div class="input-container">
+                  <i class="fa fa-home icon"></i>
+                  <input class="input-field" type="text" name="zip_code" value="{{pet_owner_info.zip_code}}" placeholder="Zip code" required >
+               </div>
+               <div class="input-container">
+                  <i class="fa fa-envelope icon"></i>
+                  <input class="input-field" type="text" name="email" value="{{pet_owner_info.email}}" placeholder="Email" disabled>
+               </div>
+               <div class="input-container">
+                  <i class="fa fa-key icon"></i>
+                  <input class="input-field" type="password" id="password" name="password" value="{{pet_owner_info.password}}" placeholder="Password" minlength="8" maxlength="16" onkeyup='check();'>
+                  <button type="button" onclick="togglePasswordVisibility()"><i class="fa fa-eye" aria-hidden="true"></i></button>
+               </div>
+               <div class="input-container">
+                  <i class="fa fa-key icon"></i>
+                  <input class="input-field" type="password" name="confirm_password" id="confirm_password" placeholder="Confirm Password"  maxlength="16" onkeyup='check();'>
+                  <button type="button" onclick="togglePasswordVisibility()"><i class="fa fa-eye" aria-hidden="true"></i></button>
+                  <span id='message'></span>
+               </div>
+               <input class="btn" type="submit" value="Submit details" id="submit" disabled>
+               </form>
             </div>
-        </div>
-    </div>
-</body>
-
+         </div>
+      </div>
+   </body>
 </html>

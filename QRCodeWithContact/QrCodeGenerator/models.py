@@ -13,7 +13,7 @@ class UserInfo(models.Model):
     full_name = models.CharField(max_length=50)
     contact_number = models.CharField(max_length=12)
     address = models.TextField()
-    mother_name = models.CharField(max_length=20)
+    mother_name = models.CharField(max_length=22)
     mother_contact_number = models.CharField(max_length=12)
     father_name = models.CharField(max_length=20)
     father_contact_number = models.CharField(max_length=12)
