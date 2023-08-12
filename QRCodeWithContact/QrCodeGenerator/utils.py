@@ -18,7 +18,7 @@ def send_mail(recipient_email, subject, type=None, password=None, ip=None):
         if type == EMAIL_TYPE_FORGOT_PW:
             message = generate_msg_for_forgot_password(msg, password)
         if type == EMAIL_TYPE_INFO:
-            gps_location, gps_url = get_details_from_ip("103.85.8.84")
+            gps_location, gps_url = get_details_from_ip(ip)
             message = generate_msg_for_iquirer_detail(msg, gps_location, gps_url)
 
         # Connect to the SMTP server and send the email
