@@ -18,6 +18,7 @@ def send_mail(recipient_email, subject, type=None, password=None, ip=None):
         if type == EMAIL_TYPE_FORGOT_PW:
             message = generate_msg_for_forgot_password(msg, password)
         if type == EMAIL_TYPE_INFO:
+            print(ip)
             gps_location, gps_url = get_details_from_ip(ip)
             message = generate_msg_for_iquirer_detail(msg, gps_location, gps_url)
 
@@ -25,7 +26,7 @@ def send_mail(recipient_email, subject, type=None, password=None, ip=None):
         with smtplib.SMTP_SSL(SMTP_URL, SMTP_PORT) as server:
             server.login(SENDER_MAIL_ID, EMAIL_PASSWORD)
             server.sendmail(SENDER_MAIL_ID, recipient_email, message.as_string())
-        print("Email sent successfully.")
+        print("Email sent successfully. ", recipient_email)
     except Exception as e:
         print("Error:", e)
 

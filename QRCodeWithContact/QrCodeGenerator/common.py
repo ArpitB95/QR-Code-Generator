@@ -23,6 +23,7 @@ def get_qr_code_details(request, qr_code_number):
                 qr_code_number=qr_code_number
             ).first()
             if pet_owner_info.email:
+                send_mail(pet_owner_info.email, SUBJECT_ALERT_EMAIL, EMAIL_TYPE_INFO, ip=ip)
                 return render(
                     request,
                     "view_pet_details.html",
@@ -36,6 +37,7 @@ def get_qr_code_details(request, qr_code_number):
                 qr_code_number=qr_code_number
             ).first()
             if traveller_info.email:
+                send_mail(traveller_info.email, SUBJECT_ALERT_EMAIL, EMAIL_TYPE_INFO, ip=ip)
                 return render(
                     request,
                     "view_traveller_details.html",

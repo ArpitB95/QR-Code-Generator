@@ -92,7 +92,6 @@ def generate_a4(type):
         # Delete the file
         try:
             os.remove(image)
-            print(f"{image} has been deleted.")
         except OSError as e:
             print(f"Error: {e} - {image} was not deleted.")
 
