@@ -1,8 +1,8 @@
 SALT = b"PZgBl75C9eKgFD-ABD4Ke_kuxci8bqTv1-cYrtKCj5E="
-URL_PATH = "http://127.0.0.1:8000/get_qr_code_details/"
-SENDER_MAIL_ID = "shahmeet21.ms@gmail.com"
+URL_PATH = "sarathiqrcodesolutions.pythonanywhere.com./get_qr_code_details/"
+SENDER_MAIL_ID = "sarathiqrcodesolutions@gmail.com"
 SUBJECT_FOR_FORGOT_PASSWORD = "YOUR NEW PASSWORD"
-EMAIL_PASSWORD = "tbnlgpbfufnzhaiw"
+EMAIL_PASSWORD = "spesxyehvoseoeoa"
 SMTP_URL = "smtp.gmail.com"
 SMTP_PORT = 465
 SUBJECT_ALERT_EMAIL = "Someone scan your QR code"
