@@ -1,5 +1,5 @@
 SALT = b"PZgBl75C9eKgFD-ABD4Ke_kuxci8bqTv1-cYrtKCj5E="
-URL_PATH = "sarathiqrcodesolutions.pythonanywhere.com./get_qr_code_details/"
+URL_PATH = "sarathiqrcodesolutions.pythonanywhere.com/get_qr_code_details/"
 SENDER_MAIL_ID = "sarathiqrcodesolutions@gmail.com"
 SUBJECT_FOR_FORGOT_PASSWORD = "YOUR NEW PASSWORD"
 EMAIL_PASSWORD = "spesxyehvoseoeoa"
