@@ -24,12 +24,13 @@
 ```
 sudo apt-get update
 ```
+
 - Afterwards, we're gonna install python3 as well as Nginx .
 ```
 sudo apt install python3-venv libpq-dev nginx curl
 ```
 ```
-- Install pip
+Install pip
 ```
 ```
 - wget https://bootstrap.pypa.io/get-pip.py
