@@ -222,3 +222,55 @@ cd
 cd /etc/nginx/sites-available
 sudo nano default
 ```
+
+### To run the server / process in the background we can use 'tmux'
+- When you close the terminal, the server will go down and so will your website. For that we can use 'tmux', which allows you to run your server in the background and you can close the terminal.
+
+- Install tmux
+```
+sudo apt update
+```
+
+```
+sudo apt install tmux
+```
+
+ - Start a New tmux Session:
+ - type tmux to start a new tmux session
+
+ ```
+  tmux
+ ```
+
+- Run Your Process:
+- Inside the tmux session, run your desired process as if you were in a regular terminal session. For example
+
+  ```
+  python3 manage.py runserver 0.0.0.0:8000
+  ```
+
+- Detach from tmux Session:
+- To detach from the tmux session while keeping your process running, press the following key combination:
+- Press 'ctrl+b' together and after that release it and press 'd'
+- This will return you to your regular terminal prompt.
+
+- Now you can close your terminal and your server will run in the background
+
+- Reattach to the tmux Session:
+- To reattach to the tmux session and continue interacting with your process, use the following command:
+- tmux attach
+
+- If you close your terminal while inside a tmux session (by detaching from the session using Ctrl-b, d), the processes running within that tmux session will continue to run in the background. Closing the terminal in this scenario will not terminate the processes running within the tmux session.
+- However, if you exit the tmux session itself (by typing exit or closing the terminal window), the tmux session and any processes running within it will be terminated.
+
+  
+- In summary:
+- Detaching from a tmux session and closing the terminal will not terminate the processes within the tmux session.
+- Exiting the tmux session and closing the terminal will terminate the tmux session and any processes within it.
+- If you want your server to continue running even after you close the terminal, you should keep the tmux session active by detaching from it rather than exiting it.
+
+
+- You have evrything on the server and (code, dependencies etc), then you just have to start vertual environment from where your venv file is.
+- In this case run "source myenv/bin/activate" command from where your myenv file is located.
+- This will activate virtual environment.
+- Then go to code directory to run your server. (go in 'tmux' first).
