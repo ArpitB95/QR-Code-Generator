@@ -18,6 +18,7 @@
      - HTTP - allow all
      - HTTPs - allow all
      - Allow all traffic on port 800
+     - Clone your code from github
 
 ## Commands to configure server:
 ```
@@ -172,3 +173,51 @@ sudo apt install python3-venv libpq-dev nginx curl
 
 
 
+### Useful Articles:
+- https://www.programink.com/django-tutorial/django-deployment.html
+
+- https://awstip.com/how-to-deploy-django-application-on-aws-ubuntu-ec2-25a24ca439e2
+
+### Commands History:
+
+```
+sudo apt-get update
+sudo apt install python3-venv libpq-dev nginx curl
+sudo systemctl status nginx
+pip install -r requirements.txt
+sudo install pip3
+git clone https://github.com/meet21mit21/qrCodeForContact.git
+ls
+wget https://bootstrap.pypa.io/get-pip.py
+sudo python3 get-pip.py
+sudo apt install python3-venv
+python3 -m venv myenv
+source myenv/bin/activate
+history
+pip install -r requirements.txt
+cd qrCodeForContact/
+cd QRCodeWithContact/
+ls
+pip install -r requirements.txt
+python manage.py runserver 0.0.0.0:8000
+sudo systemctl status nginx
+python3 manage.py runserver 0.0.0.0:8000
+sudo ufw allow 8000
+python3 manage.py runserver 0.0.0.0:8000
+sudo ufw allow 8000
+python3 manage.py runserver 0.0.0.0:8000
+python manage.py runserver
+python3 manage.py runserver 0.0.0.0:8000
+history
+ls
+cd QrCodeGenerator/
+nano common.py
+nano constants.py
+nano super_user.py
+python3 manage.py runserver 0.0.0.0:8000
+cd ..
+python3 manage.py runserver 0.0.0.0:8000
+cd
+cd /etc/nginx/sites-available
+sudo nano default
+```
