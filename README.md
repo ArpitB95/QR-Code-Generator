@@ -274,3 +274,7 @@ sudo apt install tmux
 - In this case run "source myenv/bin/activate" command from where your myenv file is located.
 - This will activate virtual environment.
 - Then go to code directory to run your server. (go in 'tmux' first).
+
+
+## To kill the process on port 
+- "sudo fuser -k -n tcp 8000"  (change port number according to your usecase)
