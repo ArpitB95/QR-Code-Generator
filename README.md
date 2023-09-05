@@ -278,3 +278,71 @@ sudo apt install tmux
 
 ## To kill the process on port 
 - "sudo fuser -k -n tcp 8000"  (change port number according to your usecase)
+
+
+
+## Generate ssl certificate for secure https connection
+- sudo apt install certbot python3-certbot-nginx -y
+- sudo apt-get update
+- sudo apt-get install certbot python3-certbot-nginx -y
+- sudo certbot --nginx -d your-domain.com     (Change domain name to www.sarathiqrcodesolutions.co.in)
+
+## Change the nginx config
+- go to sudo nano /etc/nginx/sites-available/default
+- change your EC2 ip address in proxy pass
+
+  
+````
+server {
+ listen 443 ssl default_server;
+        #listen [::]:443 ssl default_server;
+
+  server_name www.sarathiqrcodesolutions.co.in;
+
+  location / {
+      proxy_pass http://EC2 IP:8000;  # Assuming Django development serve>
+      proxy_set_header Host $host;
+
+      proxy_set_header X-Real-IP $remote_addr;
+  }
+
+ #   location /static/ {
+ #      alias /path/to/your/static/files;  # Path to your static files
+ # }
+
+   # listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/www.sarathiqrcodesolutions.co.in/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/www.sarathiqrcodesolutions.co.in/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+}
+
+
+
+
+#server {
+   # if ($host = www.sarathiqrcodesolutions.co.in) {
+    #    return 301 https://$host$request_uri;
+   # } # managed by Certbot
+
+
+  #listen 80;
+  #server_name www.sarathiqrcodesolutions.co.in;
+ #   return 404; # managed by Certbot
+
+
+#}
+server {
+    listen 80;
+    server_name www.sarathiqrcodesolutions.co.in;  # Add your domain and www subdomain if needed
+
+    # Redirect all HTTP requests to HTTPS
+    return 301 https://$host$request_uri;
+}
+
+````
+
+## Autorenewal of ssl certificate after 90 days
+- sudo crontab -l
+
